@@ -23,7 +23,7 @@ public class Tree : MonoBehaviour
     /// Each tree needs to access their colors depending on how old they are.
     /// Unfortunately, this solution uses up a lot of Memory :(
     /// </summary>
-   void LoadColorInfos()
+   public void LoadColorInfos()
     {
         var fileContents = Resources.Load<TextAsset>("treeColors").text;
         this._treeColors = JsonUtility.FromJson<TreeSeasonColors>(fileContents);
