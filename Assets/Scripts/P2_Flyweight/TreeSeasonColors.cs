@@ -15,7 +15,7 @@ public class TreeSeasonColors
         get
         {
             var colorInfo = colors[_index];
-            return new Color(colorInfo.r, colorInfo.g, colorInfo.b, 1f);
+            return new Color(colorInfo.r/255f, colorInfo.g/255f, colorInfo.b/255f, 1f);
         }
     }
 

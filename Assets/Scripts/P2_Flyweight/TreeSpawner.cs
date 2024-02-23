@@ -15,8 +15,11 @@ public class TreeSpawner : MonoBehaviour
     
     const float _totalCooldown = 0.2f;
 
-   
-    
+    private void Start()
+    {
+        throw new NotImplementedException();
+    }
+
     void FixedUpdate()
     {
         
