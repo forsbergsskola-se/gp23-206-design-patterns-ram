@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public class TreeSeasonColors
 {
-    [SerializeField] private ColorInfo[] colors;
+    public ColorInfo[] colors;
     
     /// <summary>
     /// This returns the current color. The value changes every time
