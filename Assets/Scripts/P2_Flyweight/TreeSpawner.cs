@@ -9,15 +9,21 @@ public class TreeSpawner : MonoBehaviour
 {
 
     private TreeSeasonColors _treeSeasonColors;
-   
+    private Tree _tree;
     public Tree TreePrefab;
     private float _currentCooldown;
     
     const float _totalCooldown = 0.2f;
 
+    public void LoadColorInfos()
+    {
+        var fileContents = Resources.Load<TextAsset>("treeColors").text;
+        this._treeSeasonColors = JsonUtility.FromJson<TreeSeasonColors>(fileContents);
+    }
+
     private void Start()
     {
-        throw new NotImplementedException();
+       LoadColorInfos();
     }
 
     void FixedUpdate()
@@ -34,11 +40,7 @@ public class TreeSpawner : MonoBehaviour
     }
     
     
-    public void Flyweight(TreeSeasonColors treeSeasonColors)
-    {
-        treeSeasonColors = _treeSeasonColors;
-    }
-    
+
   public  void SpawnTree()
     {
         
@@ -46,6 +48,8 @@ public class TreeSpawner : MonoBehaviour
         var randomPositionY = Random.Range(-6f, 6f); 
         var newSpawn  =  Instantiate(this.TreePrefab, new Vector2(randomPositionX, randomPositionY), Quaternion.identity);
         // pass flyweight to tree
-      
+
+        newSpawn._treeColors = _treeSeasonColors;
+
     }
 }
