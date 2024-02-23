@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class TreeSeasonColors
+public struct TreeSeasonColors
 {
     public ColorInfo[] colors;
     

@@ -3,13 +3,13 @@ using UnityEngine;
 public class Tree : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
-    private TreeSeasonColors _treeColors;
+    public TreeSeasonColors _treeColors;
     private int _tick;
     
     void Start()
     {
         this._spriteRenderer = GetComponent<SpriteRenderer>();
-        LoadColorInfos();
+        //LoadColorInfos();
         UpdateSeason();
     }
     
@@ -23,11 +23,7 @@ public class Tree : MonoBehaviour
     /// Each tree needs to access their colors depending on how old they are.
     /// Unfortunately, this solution uses up a lot of Memory :(
     /// </summary>
-   public void LoadColorInfos()
-    {
-        var fileContents = Resources.Load<TextAsset>("treeColors").text;
-        this._treeColors = JsonUtility.FromJson<TreeSeasonColors>(fileContents);
-    }
+
 
     void UpdateSeason()
     {
